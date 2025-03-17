@@ -14,7 +14,12 @@ const port = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors());
+app.use(
+  cors({
+    origin: 'https://bable.vercel.app',
+    credentials: true, 
+  })
+);
 app.use("/user", userroute);
 app.use("/blog", blogroute);
 

@@ -14,6 +14,13 @@ const port = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(cookieParser());
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://bable.vercel.app');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
 app.use(
   cors({
     origin: 'https://bable.vercel.app',

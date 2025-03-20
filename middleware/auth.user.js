@@ -2,7 +2,7 @@ import { validatetoken } from "../utils/auth.jsw";
 
 export const validateuser = (req, res, next) => {
   const token = req.cookies.token;
-  if (!token) res.status(401).json({ message: "Unauthorized" });
+  if (!token) return res.status(401).json({ message: "Unauthorized" });
 
   try {
     const decoded = validatetoken(token);

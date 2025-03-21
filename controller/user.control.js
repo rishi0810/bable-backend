@@ -46,9 +46,16 @@ const handlelogin = async (req, res) => {
 };
 
 const handlelogout = (req, res) => {
-  res.clearCookie("token");
-  res.json("Log out Successful");
+  res.clearCookie("token", { 
+    httpOnly: true, 
+    secure: true, 
+    sameSite: "None", 
+    path: "/" 
+  });
+
+  res.status(200).json({ message: "Log out Successful" });
 };
+
 
 const handleauthcheck = (req, res) => {
   const token = req.cookies.token;

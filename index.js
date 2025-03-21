@@ -18,7 +18,12 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, Set-Cookie');
   next();
 });
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://bable.vercel.app", 
+    credentials: true, 
+  })
+);
 app.use("/user", userroute);
 app.use("/blog", blogroute);
 

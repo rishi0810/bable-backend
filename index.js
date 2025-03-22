@@ -20,10 +20,11 @@ app.use((req, res, next) => {
 });
 app.use(
   cors({
-    origin: "https://bable.vercel.app", 
-    credentials: true, 
+    origin: ["https://bable.vercel.app", "http://localhost:5173"],
+    credentials: true,
   })
 );
+
 app.use("/user", userroute);
 app.use("/blog", blogroute);
 

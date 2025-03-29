@@ -39,7 +39,7 @@ backend/
 
 Create a `.env` file in the root of the backend directory and add the following values:  
 
-```
+```env
 MONGO_URL=your_mongodb_connection_string  
 JWT_SECRET=your_jwt_secret  
 PORT=your_desired_port  

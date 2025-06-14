@@ -71,7 +71,12 @@ const blogfetch = async (req, res) => {
 
 const blogfetchall = async (req, res) => {
   try {
-    const blogs = await Blog.find({});
+    const blogs = await Blog.find({})
+      .select("_id heading author img_url")
+      .populate({
+        path: "author",
+        select: "_id name",
+      });
     res.status(200).json(blogs);
   } catch (error) {
     res.status(500).json({ message: "Internal Sever Error" });

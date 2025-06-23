@@ -13,6 +13,6 @@ router.post("/signup", handlesignup);
 router.post("/login", handlelogin);
 router.post("/logout", handlelogout);
 router.get("/authcheck", handleauthcheck);
-router.get("/details", handleuserdetails);
+router.get("/details/:userID", handleuserdetails);
 
 export default router;

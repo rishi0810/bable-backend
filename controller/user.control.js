@@ -71,14 +71,7 @@ const handleauthcheck = (req, res) => {
 
 const handleuserdetails = async (req, res) => {
   try {
-    const token = req.cookies.token;
-    if (!token) return res.json({ Authenticated: false });
-
-    const payload = validatetoken(token);
-    if (!payload) return res.status(401).json({ message: "Unauthorized" });
-
     const { userID } = req.params;
-
     const currentuser = await User.findOne({ _id: userID })
       .populate({
         path: "writtenBlogs",

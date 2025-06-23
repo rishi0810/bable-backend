@@ -77,9 +77,9 @@ const handleuserdetails = async (req, res) => {
     const payload = validatetoken(token);
     if (!payload) return res.status(401).json({ message: "Unauthorized" });
 
-    const userid = payload._id;
+    const { userID } = req.params;
 
-    const currentuser = await User.findOne({ _id: userid })
+    const currentuser = await User.findOne({ _id: userID })
       .populate({
         path: "writtenBlogs",
         select: "heading ",

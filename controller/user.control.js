@@ -63,7 +63,7 @@ const handleauthcheck = (req, res) => {
 
   try {
     const payload = validatetoken(token);
-    if (payload) res.json({ Authenticated: true });
+    if (payload) res.json({ Authenticated: true, userId : payload._id });
   } catch (err) {
     res.json({ Authenticated: false, message: err });
   }
